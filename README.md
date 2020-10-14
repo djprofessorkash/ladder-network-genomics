@@ -1,4 +1,4 @@
-<h1 align="center"><b>M.L. Experimentation</b>: <i>Ladder Networks (with Genomic Data)</i></h1>
+<h1 align="center"><b>M.L. Experimentation</b>: <i>Genomic Ladder Networks</i></h1>
 
 <p align="center">
 <a href="/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg"/></a>
