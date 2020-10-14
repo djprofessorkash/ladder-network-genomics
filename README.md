@@ -11,7 +11,7 @@
 
 ## Description
 
-This is a personal examination into ladder networks, the novel semi-supervised neural network architectures proposed by <i>Rasmus et al</i>.
+This is a personal examination into <b>[ladder networks](https://github.com/CuriousAI/ladder)</b>, the novel semi-supervised neural network architectures proposed by <i>Rasmus et al</i>.
 
 ## License
 
