@@ -11,7 +11,7 @@
 
 ## Description
 
-This is a personal examination into ladder networks, the novel semi-supervised neural network architectures proposed by Rasmus et al.
+This is a personal examination into ladder networks, the novel semi-supervised neural network architectures proposed by <i>Rasmus et al</i>.
 
 ## License
 
