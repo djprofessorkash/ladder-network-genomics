@@ -1,0 +1,7 @@
+# Sensitive Data Files
+datasets/
+*/datasets/
+
+# Dummy File Generation
+.DS_Store
+*/.DS_Store
