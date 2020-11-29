@@ -51,7 +51,7 @@ class DatasetReport(object):
         self._labels = labels                   # Stored labels (y-data)
         self._num_rows = dataset.shape[0]       # Number of rows/samples in dataset
         self._completed_epochs = 0              # Epoch progression counter
-        self._epoch_index = 0                   # ???
+        self._epoch_index = 0                   # Relative ending index in epoch
         
     @property
     def get_dataset(self):
@@ -99,11 +99,11 @@ class DatasetReport(object):
             # Progress to next epoch by resetting & decrementing relative indices
             position_start, position_end = 0, batch_size - len(sampled_data)
 
-            # Construct randomly partitioned data and label segments into batch
+            # Construct randomly segmented data and labels into batch
             sampled_data = np.append(sampled_data, self._dataset[position_start:position_end], axis=0)
             sampled_labels = np.append(sampled_labels, self._labels[position_start:position_end], axis=0)
 
-        # Update index of latest partition ending in epoch and output samples
+        # Update index of latest segment ending in epoch and output samples
         self._epoch_index = position_end
         return sampled_data, sampled_labels
 
