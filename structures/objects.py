@@ -43,7 +43,7 @@ def vectorial_split(vectors, batch_size):
 CLASS INSTANCES
 """
 
-class DatasetReport(object):
+class DatasetBase(object):
     """ write summary here """
     def __init__(self, dataset, labels):
         """ Initializer method. """
@@ -89,12 +89,12 @@ class DatasetReport(object):
             self._completed_epochs += 1
 
             # Create permuted random range from stored dataset for randomized sampling
-            permuted_range = np.arange(self._num_rows)
-            np.random.shuffle(permuted_range)
+            permuted_indices = np.arange(self._num_rows)
+            np.random.shuffle(permuted_indices)
             
             # Shuffle dataset and labels using permuted random sampling ranges
-            self._dataset = self._dataset[permuted_range]
-            self._labels = self._labels[permuted_range]
+            self._dataset = self._dataset[permuted_indices]
+            self._labels = self._labels[permuted_indices]
 
             # Progress to next epoch by resetting & decrementing relative indices
             position_start, position_end = 0, batch_size - len(sampled_data)
@@ -109,4 +109,28 @@ class DatasetReport(object):
 
 
 class DatasetPartition(object):
-    pass
+    """ write summary here """
+    def __init__(self, dataset, labels, num_labeled):
+        """ Initializer method. """
+        # ???
+        self.num_labeled = num_labeled
+
+        # Instantiate and store unlabeled dataset
+        self.dataset_unlabeled = DatasetBase(dataset, labels)
+
+        # Get size of unlabeled dataset (rows)
+        self.num_rows = self.dataset_unlabeled.get_num_rows
+
+        # ???
+        original_indices = np.arange(self.num_rows)
+        permuted_indices = np.random.permutation(original_indices)
+
+        # ???
+        dataset = dataset[permuted_indices]
+        labels = labels[permuted_indices]
+
+        # ???
+        y = np.array([np.arange(2)[label==1][0] for label in labels])
+
+        # Instantiate and store labeled dataset using labeled data and labels
+        self.dataset_labeled = None
